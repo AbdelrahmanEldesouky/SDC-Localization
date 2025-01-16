@@ -111,9 +111,8 @@ Eigen::Matrix4d ndt_transform(PointCloudT::Ptr mapCloud,
   // Create an initial guess (transformation matrix)
   Eigen::Matrix4f init_guess =
       transform3D(startingPose.rotation.yaw, startingPose.rotation.pitch,
-                  startingPose.rotation.roll,
-                  startingPose.position.x + avg_speed, startingPose.position.y,
-                  startingPose.position.z)
+                  startingPose.rotation.roll, startingPose.position.x,
+                  startingPose.position.y, startingPose.position.z)
           .cast<float>();
 
   // Configure alignment parameters
